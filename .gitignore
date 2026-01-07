@@ -1,0 +1,13 @@
+
+
+*.egg-info
+*.vscode
+build/
+logs/
+__pycache__
+output/
+
+farms_core/
+farms_sim/
+farms_mujoco/
+
