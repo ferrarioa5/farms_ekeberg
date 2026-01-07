@@ -27,8 +27,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link1
     collisions: true
     friction:
@@ -36,8 +43,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link2
     collisions: true
     friction:
@@ -45,8 +59,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link3
     collisions: true
     friction:
@@ -54,8 +75,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link4
     collisions: true
     friction:
@@ -63,8 +91,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link5
     collisions: true
     friction:
@@ -72,8 +107,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link6
     collisions: true
     friction:
@@ -81,8 +123,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link7
     collisions: true
     friction:
@@ -90,8 +139,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   - name: link8
     collisions: true
     friction:
@@ -99,8 +155,15 @@ morphology:
     - 0
     - 0
     extras: {}
-    fluid_interaction: false
+    fluid_interaction: true
     density: 800.0
+    drag_coefficients:
+    - - -0.1
+      - -4.0
+      - -4.0
+    - - 0
+      - 0
+      - 0
   joints:
   - name: joint_body_00
     initial:
@@ -321,5 +384,8 @@ extensions:
     twl: 0.8
     amp: 0.4
     bias: 0.0
-    load_controller: implicit_muscles.src.network.DummyController
+    load_controller: implicit_muscles.src.network.WaveController
     method: implicit
+- loader: farms_mujoco.swimming.extension.SwimmingExtension
+  config:
+    water_properties: null

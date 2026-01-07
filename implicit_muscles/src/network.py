@@ -3,6 +3,8 @@
 from abc import ABC, abstractmethod
 import numpy as np
 from farms_core.model.data import AnimatData
+from scipy.integrate._ode import ode
+from scipy import integrate
 
 class NNController(ABC):
     """NN controller"""
@@ -86,14 +88,14 @@ class OscillatorController(NNController):
     def __init__(self, animat_data, n_joints, n_iterations, config):
         super().__init__(animat_data, n_joints, n_iterations)
         self.config = config
-
-        self.phases    = np.zeros((self.n_iterations, 2*self.n_joints))
-        self.amplitudes = np.zeros((self.n_iterations, 2*self.n_joints))
-
+        self.state = np.zeros_like(self.n_iterations, 4*self.n_joints) # 4 state variables - phi_L, phi_R, A_L, A_R
+        self.dstate = np.zeros_like(self.state)
+        
     def initialize_episode(self):
         """Initialize episode"""
-        pass
-
+        self.solver: ode = integrate.ode(f=self.rhs)
+        self.solver.set_integrator('dopri5')
+        self.solver.set_initial_value(y=self.state[0], t=0.0)
 
     def step(self, iteration, time, timestep):
         """Compute neural activity"""

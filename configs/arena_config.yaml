@@ -20,8 +20,8 @@ spawn:
   extras: {}
 water:
   sdf: ../sdfs/arena_water_v0/sdf/arena_water.sdf
-  drag: false
-  buoyancy: false
+  drag: true
+  buoyancy: true
   height: 0
   velocity:
   - 0
