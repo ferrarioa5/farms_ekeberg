@@ -62,7 +62,37 @@ class WaveController(NNController):
 
     def initialize_episode(self):
         """Initialize episode"""
-        self.state[:] = 0
+        pass
+
+
+    def step(self, iteration, time, timestep):
+        """Compute neural activity"""
+        time     = iteration * timestep
+        aux_sine = np.sin(
+            2*np.pi * ( self.config.freq*time - self.config.twl*np.arange(self.n_joints)/self.n_joints )
+        )
+        self.state[iteration, self.muscle_l]  = self.config.amplitudes_left * (1+aux_sine)/2
+        self.state[iteration, self.muscle_r]  = self.config.amplitudes_right * (1-aux_sine)/2
+
+        M_diff     = (self.state[iteration,self.muscle_l] - self.state[iteration,self.muscle_r])
+        M_sum      = (self.state[iteration,self.muscle_l] + self.state[iteration,self.muscle_r])
+
+        return M_diff, M_sum
+
+
+class OscillatorController(NNController):
+    """OscillatorController"""
+
+    def __init__(self, animat_data, n_joints, n_iterations, config):
+        super().__init__(animat_data, n_joints, n_iterations)
+        self.config = config
+
+        self.phases    = np.zeros((self.n_iterations, 2*self.n_joints))
+        self.amplitudes = np.zeros((self.n_iterations, 2*self.n_joints))
+
+    def initialize_episode(self):
+        """Initialize episode"""
+        pass
 
 
     def step(self, iteration, time, timestep):

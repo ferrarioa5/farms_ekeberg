@@ -11,9 +11,18 @@ from dm_control.rl.control import Task
 from dm_control.mjcf.physics import Physics
 
 import numpy as np
-from lilytorch.util.rw import Dict2Class
 
 import importlib
+
+class Dict2Class(object):
+    '''
+    Turns a dictionary into a class
+    '''
+    def __init__(self, my_dict):
+        for key in my_dict:
+            setattr(self, key, my_dict[key])
+    def update(self, newdict={}, **kwargs):
+        self.__dict__.update(newdict, **kwargs)
 
 class EkebergMuscleController(AnimatController):
 
