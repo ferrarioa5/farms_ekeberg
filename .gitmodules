@@ -1,0 +1,15 @@
+[submodule "farms_core"]
+	path = farms_core
+	url = https://github.com/ferrarioa5/farms_core.git
+[submodule "farms_mujoco"]
+	path = farms_mujoco
+	url = https://github.com/ferrarioa5/farms_mujoco.git
+[submodule "farms/farms_core"]
+	path = farms/farms_core
+	url = https://github.com/ferrarioa5/farms_core.git
+[submodule "farms/farms_mujoco"]
+	path = farms/farms_mujoco
+	url = https://github.com/ferrarioa5/farms_mujoco.git
+[submodule "farms/farms_sim"]
+	path = farms/farms_sim
+	url = https://github.com/ferrarioa5/farms_sim.git
