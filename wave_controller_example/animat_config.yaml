@@ -1,11 +1,11 @@
 spawn:
   loader: 0
   mode: !!python/object/apply:farms_core.model.options.SpawnMode
-  - transverse
+  - free
   pose:
   - 0
   - 0
-  - 0
+  - -0.05
   - 0
   - 0
   - 3.141592653589793
@@ -33,9 +33,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link1
     collisions: true
     friction:
@@ -49,9 +49,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link2
     collisions: true
     friction:
@@ -65,9 +65,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link3
     collisions: true
     friction:
@@ -81,9 +81,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link4
     collisions: true
     friction:
@@ -97,9 +97,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link5
     collisions: true
     friction:
@@ -113,9 +113,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link6
     collisions: true
     friction:
@@ -129,9 +129,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link7
     collisions: true
     friction:
@@ -145,9 +145,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   - name: link8
     collisions: true
     friction:
@@ -161,9 +161,9 @@ morphology:
     - - -0.1
       - -4.0
       - -4.0
-    - - 0
-      - 0
-      - 0
+    - - -0.1
+      - -0.1
+      - -0.1
   joints:
   - name: joint_body_00
     initial:
@@ -381,8 +381,8 @@ extensions:
 - loader: implicit_muscles.src.torque_controller.EkebergMuscleController
   config:
     freq: 1.0
-    twl: 0.8
-    amp: 0.4
+    twl: 0.5
+    amp: 1.2
     bias: 0.0
     load_controller: implicit_muscles.src.network.WaveController
     method: implicit

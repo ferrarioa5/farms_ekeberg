@@ -1,5 +1,4 @@
 
-
 from farms_core.model.control import AnimatController
 from farms_core.experiment.options import ExperimentOptions
 from farms_core.model.data import AnimatData
@@ -52,7 +51,7 @@ class EkebergMuscleController(AnimatController):
         # Define muscle parameters for each joint - could be loaded from a config instead (i.e. the animat_options)
         muscles_params = [
             {
-            "alpha": 1.0,
+            "alpha": .1,
             "beta": 0.001,
             "gamma": 1600,
             "delta": 0.1
@@ -156,9 +155,11 @@ class EkebergMuscleController(AnimatController):
     def before_step(self, task: Task, action, physics: Physics):
         time = physics.time()
         timestep = physics.timestep()
-        index = task.iteration % task.buffer_size
-        Mdiff, Msum = self.nn.step(iteration=index, time=time, timestep=timestep)
-        self.step_muscles(Mdiff, Msum, iteration=index, time=time, timestep=timestep)
+        iteration = task.iteration % task.buffer_size
+
+        Mdiff, Msum = self.nn.step(iteration=iteration, time=time, timestep=timestep)
+        # Mdiff, Msum = np.zeros(self.n_joints), np.zeros(self.n_joints)
+        self.step_muscles(Mdiff, Msum, iteration=iteration, time=time, timestep=timestep)
 
 
     def springrefs(

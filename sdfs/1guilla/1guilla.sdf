@@ -314,7 +314,7 @@
 				<child>link1</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -326,7 +326,7 @@
 				<child>link2</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -338,7 +338,7 @@
 				<child>link3</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -350,7 +350,7 @@
 				<child>link4</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -362,7 +362,7 @@
 				<child>link5</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -374,7 +374,7 @@
 				<child>link6</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -386,7 +386,7 @@
 				<child>link7</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>
@@ -398,7 +398,7 @@
 				<child>link8</child>
 				<pose>0 0 0 0 0 0</pose>
 				<axis>
-					<xyz>0.0 0.0 -1.0</xyz>
+					<xyz>0.0 0.0 1.0</xyz>
 					<limit>
 						<lower>-1.5708</lower>
 						<upper>1.5708</upper>

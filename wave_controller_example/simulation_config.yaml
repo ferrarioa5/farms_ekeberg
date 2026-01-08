@@ -3,8 +3,8 @@ units:
   mass: kilogram
   time: second
 runtime:
-  n_iterations: 5001
-  buffer_size: 5001
+  n_iterations: 15001
+  buffer_size: 15001
   play: true
   rtl: 1.0
   fast: false
