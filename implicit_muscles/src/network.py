@@ -90,8 +90,8 @@ class POscillatorController(NNController):
         self.phase_lag       = 2*np.pi/15
         self.weight          = 10.0
         self.freq            = 1
-        self.enable_coupling = True
-        self.weight_feedback = 0
+        self.enable_coupling = False
+        self.weight_feedback = 3
         self.dstate          = np.zeros_like(self.state)
         self.solver          = integrate.ode(f=self.rhs)
         self.solver.set_integrator('dopri5', atol=1e-6, rtol=1e-6)
