@@ -87,11 +87,11 @@ class POscillatorController(NNController):
 
         self.state           = np.zeros((self.n_iterations, 2*self.n_joints))  # 2 state variables - phi_L first, phi_R second
         self.state[0]        = np.random.rand(2*self.n_joints)*2*np.pi         # introduce asym
-        self.phase_lag       = 2*np.pi/20
+        self.phase_lag       = 2*np.pi/15
         self.weight          = 10.0
         self.freq            = 1
-        self.enable_coupling = False
-        self.weight_feedback = 0.3
+        self.enable_coupling = True
+        self.weight_feedback = 0
         self.dstate          = np.zeros_like(self.state)
         self.solver          = integrate.ode(f=self.rhs)
         self.solver.set_integrator('dopri5', atol=1e-6, rtol=1e-6)

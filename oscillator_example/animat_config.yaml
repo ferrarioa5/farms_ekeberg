@@ -5,7 +5,7 @@ spawn:
   pose:
   - 0
   - 0
-  - -0.
+  - -0.1
   - 0
   - 0
   - 3.141592653589793
@@ -31,8 +31,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -47,8 +47,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -63,8 +63,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -79,8 +79,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -95,8 +95,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -111,8 +111,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -127,8 +127,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -143,8 +143,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.
@@ -159,8 +159,8 @@ morphology:
     density: 1000.0
     drag_coefficients:
     - - -0.1
-      - -2.0
-      - -2.0
+      - -4.0
+      - -4.0
     - - -0.
       - -0.
       - -0.

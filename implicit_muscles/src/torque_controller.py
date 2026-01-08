@@ -51,7 +51,7 @@ class EkebergMuscleController(AnimatController):
         # Define muscle parameters for each joint - could be loaded from a config instead (i.e. the animat_options)
         muscles_params = [
             {
-            "alpha": .1,
+            "alpha": .3,
             "beta": 0.001,
             "gamma": 1600,
             "delta": 0.1
