@@ -37,7 +37,7 @@ Example:
 
 ```bash
 cd multiple_swimmer
-sh run_simulation.sh
+sh run.sh
 ```
 In this example you will see two Salamandra Robotica robot swimmers run with two different controllers, an abstract oscillator decentralized controller and a sine wave controller.
 
