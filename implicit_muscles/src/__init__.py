@@ -1,7 +1,7 @@
 """Core controllers and network implementations for implicit muscles."""
 
 from .network import NNController, WaveController
-from .torque_controller import EkebergMuscleController
+from .ekeberg import EkebergMuscleController
 
 __all__ = [
     "NNController",
