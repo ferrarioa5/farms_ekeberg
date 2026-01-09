@@ -47,25 +47,20 @@ extensions:
 - loader: farms_mujoco.simulation.extensions.MjcfSaver
   config:
     path: output/simulation_mjcf.xml
-- loader: farms_mujoco.sensors.camera.CameraRecording
-  config:
-    path: 'output/swimming_0.gif'
-    animat_id: 0
-    fps: 30
-    speed: 1.0
-    azimuth: -30
-    elevation: -15
-    distance: 2
-    angular_velocity: 0
-    offset:
-    - 0
-    - 0
-    - 0.0
-    resolution:
-    - 1280
-    - 720
-
-# - loader: farms_core.simulation.extensions.ExperimentLogger
+# - loader: farms_mujoco.sensors.camera.CameraRecording
 #   config:
-#     log_path: output
-#     skip: 0
+#     path: 'output/swimming_0.gif'
+#     animat_id: 0
+#     fps: 30
+#     speed: 1.0
+#     azimuth: -30
+#     elevation: -15
+#     distance: 2
+#     angular_velocity: 0
+#     offset:
+#     - 0
+#     - 0
+#     - 0.0
+#     resolution:
+#     - 1280
+#     - 720

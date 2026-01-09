@@ -645,9 +645,9 @@ control:
       - 0
       - 0
 extensions:
-- loader: implicit_muscles.src.ekeberg.EkebergMuscleController
+- loader: farms_ekeberg.src.ekeberg.EkebergMuscleController
   config:
-    load_controller: implicit_muscles.src.network.POscillatorController
+    load_controller: farms_ekeberg.src.network.POscillatorController
     method: implicit
     muscle_pars:
       joint_body_0:

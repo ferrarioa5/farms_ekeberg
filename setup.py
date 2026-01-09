@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
     description = fh.read()
 
 setup(
-    name="implicit_muscles",
+    name="farms_ekeberg",
     author="Andrea Ferrario",
     description="Implicit muscles simulation library",
     packages=find_packages(),

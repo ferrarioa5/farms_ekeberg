@@ -22,8 +22,6 @@ pip install -e .
 ```
 
 ## Overview
-- **Purpose:** Offers FARMS-compatible, controller-free Ekeberg muscle actuation for MuJoCo simulations.
-- **Core idea:** Use implicit Ekeberg muscle dynamics to drive robot models without manually crafting control policies.
 
 ## `src/`
 - `ekeberg.py`: Provides the full implementation of the Ekeberg muscle model. This module is designed to be integrated as an extension within the Animat configuration, handling the muscle dynamics calculation during simulation steps. In the animat config you need to provide the controller file, the muscle parameters and optionally parameters used in your controller.
@@ -32,7 +30,7 @@ pip install -e .
 
 ## `multiple_swimmer/`
 - Contains reproducible demos featuring paired Polymander swimmers with different controller models and using the sama Ekeberg muscle models.
-- Includes configuration, controller scripts, and `run_simulation.sh` to launch comparative controller runs.
+- Includes configuration, controller scripts, and `run.sh` to launch comparative controller runs.
 - Outputs demo gifs such as `swimming_two_controllers.gif` for quick visualization.
 
 Example:
