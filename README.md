@@ -29,7 +29,7 @@ pip install -e .
 - `network.py`:Implements a Central Pattern Generator (CPG) network based on hopf oscillators. It defines the `Network` class which constructs the neural oscillator system and couples it to the simulation, managing the rhythmic output for locomotion.
 
 ## `multiple_swimmer/`
-- Contains reproducible demos featuring paired Polymander swimmers with different controller models and using the sama Ekeberg muscle models.
+- Contains reproducible demos featuring paired Salamandra Robotica swimmers with different controller models and using the sama Ekeberg muscle models.
 - Includes configuration, controller scripts, and `run.sh` to launch comparative controller runs.
 - Outputs demo gifs such as `swimming_two_controllers.gif` for quick visualization.
 
@@ -39,7 +39,7 @@ Example:
 cd multiple_swimmer
 sh run_simulation.sh
 ```
-In this example you will see two Polymander robot swimmers run with two different controllers, an abstract oscillator decentralized controller and a sine wave controller.
+In this example you will see two Salamandra Robotica robot swimmers run with two different controllers, an abstract oscillator decentralized controller and a sine wave controller.
 
 
 ![Demo](swimming_two_controllers.gif)
