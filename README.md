@@ -1,3 +1,8 @@
+
+
+<img src="swimming_two_controllers.gif" alt="Swimming Demo" width="1000"/>
+
+
 # implicit_ekeberg
 
 Tools for running Ekeberg-style muscle actuation in MuJoCo, built on top of the FARMS ecosystem (https://github.com/farmsim). The repository bundles the required FARMS submodules plus example controllers and analysis scripts for Salamandra Robotica swimmers.
