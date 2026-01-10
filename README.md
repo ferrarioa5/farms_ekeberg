@@ -46,8 +46,8 @@ In this example you will see two Salamandra Robotica robot swimmers run with two
 
 
 An example of data postprocess is provided in ```example_plot_results.py```. This should save two plots for the joint angles and the external forces (hydrodynamic) in the ```multiple_swimmers``` folder similar to these:
-<img src="multiple_swimmers/joint_positions.png" alt="Joint Angles" width="500"/>
-<img src="multiple_swimmers/external_forces.png" alt="External Forces" width="500"/>
+<img src="multiple_swimmers/joint_positions.png" alt="Joint Angles" width="1000"/>
+<img src="multiple_swimmers/external_forces.png" alt="External Forces" width="1000"/>
 
 
 
