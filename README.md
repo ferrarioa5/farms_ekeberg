@@ -11,7 +11,7 @@ To do this initialize the git submodules and running the setup script:
 ```bash
 cd farms
 git submodule update --init --recursive
-python farms/setup_farms.py
+python setup_farms.py
 ```
 
 2. Install the current package in editable mode:
@@ -43,6 +43,12 @@ In this example you will see two Salamandra Robotica robot swimmers run with two
 
 
 ![Demo](swimming_two_controllers.gif)
+
+
+An example of data postprocess is provided in ```example_plot_results.py```. This should save two plots for the joint angles and the external forces (hydrodynamic) in the ```multiple_swimmers``` folder similar to these:
+<img src="multiple_swimmers/joint_positions.png" alt="Joint Angles" width="500"/>
+<img src="multiple_swimmers/external_forces.png" alt="External Forces" width="500"/>
+
 
 
 

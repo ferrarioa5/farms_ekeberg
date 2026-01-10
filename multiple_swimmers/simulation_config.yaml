@@ -47,6 +47,11 @@ extensions:
 - loader: farms_mujoco.simulation.extensions.MjcfSaver
   config:
     path: output/simulation_mjcf.xml
+- loader: farms_core.simulation.extensions.ExperimentLogger
+  config:
+    log_path: output
+    skip: 0
+
 # - loader: farms_mujoco.sensors.camera.CameraRecording
 #   config:
 #     path: 'output/swimming_0.gif'
