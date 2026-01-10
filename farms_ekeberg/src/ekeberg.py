@@ -10,7 +10,6 @@ from dm_control.rl.control import Task
 from dm_control.mjcf.physics import Physics
 
 import numpy as np
-
 import importlib
 
 class Dict2Class(object):
@@ -51,7 +50,28 @@ class EkebergMuscleController(AnimatController):
         )
 
         # Define muscle parameters for each joint - could be loaded from a config instead (i.e. the animat_options)
+
         muscles_pars = self.config.muscle_pars
+
+        if isinstance(muscles_pars, dict):
+            # muscles_pars is already a dictionary, use it as is
+            pass
+        elif isinstance(muscles_pars, str):
+            # muscles_pars is a path to a CSV file, load it
+
+            if not muscles_pars.endswith('.csv'):
+                raise ValueError(f"muscle_pars file path must end with '.csv', got '{muscles_pars}'")
+            
+            data = np.genfromtxt(muscles_pars, delimiter=',', names=True, dtype=None, encoding='utf-8')
+            muscles_pars = {
+                row[0]: {field: row[i+1] for i, field in enumerate(data.dtype.names[1:])}
+                for row in data
+            } 
+            self.config.muscle_pars = muscles_pars
+
+        else:
+            raise ValueError(f"muscle_pars must be either a dict or a CSV file path, got {type(muscles_pars)}")
+
         control_names = [motor.joint_name for motor in self.animat_options.control.motors] # list orderded according to the joint motor order
         self.muscle_pars_dict = {
             "alpha": np.array([muscles_pars[joint]["alpha"] for joint in control_names]),

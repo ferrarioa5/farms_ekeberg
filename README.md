@@ -2,17 +2,40 @@
 
 <img src="swimming_two_controllers.gif" alt="Swimming Demo" width="1000"/>
 
-
 # implicit_ekeberg
 
 Tools for running Ekeberg-style muscle actuation in MuJoCo, built on top of the FARMS ecosystem (https://github.com/farmsim). The repository bundles the required FARMS submodules plus example controllers and analysis scripts for Salamandra Robotica swimmers.
 
 ## Project layout
+- **src/ekeberg.py**: Extension that integrates the Ekeberg muscle model into the FARMS simulation. To use it, your animat configuration must include an `extensions` section with two required attributes:
+    - `loader`: Points to the Ekeberg extension class (`farms_ekeberg.src.ekeberg.EkebergMuscleController`)
+    - `config`: Nested dictionary containing:
+        - `load_controller` (required): Path to your controller class that generates muscle activation signals. See more details in the examples in ```src/network.py```
+        - `muscle_pars` (required): Either a list of Ekeberg muscle parameters or a path to a CSV file containing them (see the two different animat examples)
+        - Additional optional parameters (e.g., `freq`, `twl`, `amp`, `bias`, `method`) that will be passed to your controller's constructor
 
-- src/ekeberg.py: Extension that plugs the Ekeberg muscle model. Point your controller config to this module and provide muscle parameters (and any optional controller parameters).
-- src/network.py: Hopf-based central pattern generator that drives rhythmic control signals. The `Network` class couples oscillator dynamics to the simulation loop. This should be taken as an ispiration for creating a new controller.
-- multiple_swimmers/: Demo comparing two controller families while sharing the Ekeberg muscle models. The folder ships configs, controller code, `run.sh` for quick experiments, output assets, and plotting utilities.
-- sdf/: Contains the SDF (Simulation Description Format) files for the robot model and environment.
+    Example configuration:
+    ```yaml
+    extensions:
+    - loader: farms_ekeberg.src.ekeberg.EkebergMuscleController
+        config:
+            load_controller: farms_ekeberg.src.network.WaveController
+            freq: 1.0
+            twl: 1
+            amp: 1
+            bias: 0.0
+            method: implicit
+            muscle_pars: muscle_params.csv
+    ```
+
+- **src/network.py**: Use this as a template when creating custom controllers—your controller will receive the optional parameters from the config. A Hopf-based central pattern generator that drives rhythmic control signals for swimming is provided as an example.
+Your controller class must:
+    - Inherit from `network.NNController`
+    - Implement a `step()` method that is called at every simulation iteration and returns the muscle difference and sum terms used in the Ekeberg muscle equations
+
+- **multiple_swimmers/**: Demo comparing two controller families while sharing the Ekeberg muscle models. The folder ships configs, controller code, `run.sh` for quick experiments, output assets, and plotting utilities.
+
+- **sdf/**: Contains the SDF files for the robot model and environment.
 
 ## Prerequisites
 

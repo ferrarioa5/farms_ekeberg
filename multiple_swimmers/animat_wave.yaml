@@ -650,82 +650,10 @@ extensions:
     load_controller: farms_ekeberg.src.network.WaveController
     freq: 1.0
     twl: 1
-    amp: 2.5
+    amp: 1
     bias: 0.0
     method: implicit
-    muscle_pars:
-      joint_body_0:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_1:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_2:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_3:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_4:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_5:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_6:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_body_7:
-        alpha: 0.3
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_leg_tibia_0_L_0:
-        alpha: 0.
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_leg_tibia_0_R_0:
-        alpha: 0.
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_leg_tibia_1_L_0:
-        alpha: 0.
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
-      joint_leg_tibia_1_R_0:
-        alpha: 0.
-        beta: 0.01
-        gamma: 160
-        delta: 0.1
-        offset: 0.0
+    muscle_pars: muscle_params.csv
 - loader: farms_mujoco.swimming.extension.SwimmingExtension
   config:
     water_properties: null
