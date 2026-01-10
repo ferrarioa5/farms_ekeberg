@@ -1,12 +1,26 @@
 # implicit_ekeberg
 
-This repository was created to enable simple Ekeberg muscle actuation in MuJoCo via FARMS (https://github.com/farmsim) extensions.
+Tools for running Ekeberg-style muscle actuation in MuJoCo, built on top of the FARMS ecosystem (https://github.com/farmsim). The repository bundles the required FARMS submodules plus example controllers and analysis scripts for Salamandra Robotica swimmers.
 
-Installation:
+## Project layout
 
-1. Install farms_core, farms_sim, farms_mujoco is already installed in your system skip this point and go to point 2.
-Otherwise, a tested version of farms was included and can be installed to reproduce the examples in this repositories.
-To do this initialize the git submodules and running the setup script:
+- src/ekeberg.py: Extension that plugs the Ekeberg muscle model. Point your controller config to this module and provide muscle parameters (and any optional controller parameters).
+- src/network.py: Hopf-based central pattern generator that drives rhythmic control signals. The `Network` class couples oscillator dynamics to the simulation loop. This should be taken as an ispiration for creating a new controller.
+- multiple_swimmers/: Demo comparing two controller families while sharing the Ekeberg muscle models. The folder ships configs, controller code, `run.sh` for quick experiments, output assets, and plotting utilities.
+- sdf/: Contains the SDF (Simulation Description Format) files for the robot model and environment.
+
+## Prerequisites
+
+FARMS is split across three packages that must be installed before the extensions here can run:
+1. [farms_core](https://github.com/farmsim/farms_core)
+2. [farms_sim](https://github.com/farmsim/farms_sim)
+3. [farms_mujoco](https://github.com/farmsim/farms_mujoco)
+
+If you already have compatible releases of these packages in your environment you can skip the bundled setup and head straight to the project installation.
+
+## Installing the bundled FARMS stack
+
+The repo includes tested submodules to reproduce the published examples. Initialize the submodules and run the provided installer:
 
 ```bash
 cd farms
@@ -14,40 +28,37 @@ git submodule update --init --recursive
 python setup_farms.py
 ```
 
-2. Install the current package in editable mode:
+This step installs farms_core, farms_sim, and farms_mujoco into your current environment using the pinned commits referenced by this repository.
+
+## Installing implicit_ekeberg
+
+From the repository root, install the package in editable mode so scripts can import it directly:
 
 ```bash
-cd ..
 pip install -e .
 ```
 
-## Overview
+The editable install exposes the `farms_ekeberg` package (including the extensions under src/) to any Python session in the environment.
 
-## `src/`
-- `ekeberg.py`: Provides the full implementation of the Ekeberg muscle model. This module is designed to be integrated as an extension within the Animat configuration, handling the muscle dynamics calculation during simulation steps. In the animat config you need to provide the controller file, the muscle parameters and optionally parameters used in your controller.
+## Running the demo swimmers
 
-- `network.py`:Implements a Central Pattern Generator (CPG) network based on hopf oscillators. It defines the `Network` class which constructs the neural oscillator system and couples it to the simulation, managing the rhythmic output for locomotion.
-
-## `multiple_swimmer/`
-- Contains reproducible demos featuring paired Salamandra Robotica swimmers with different controller models and using the sama Ekeberg muscle models.
-- Includes configuration, controller scripts, and `run.sh` to launch comparative controller runs.
-- Outputs demo gifs such as `swimming_two_controllers.gif` for quick visualization.
-
-Example:
+Launch the paired Salamandra Robotica demo to compare the Hopf-oscillator controller with a sine-wave controller:
 
 ```bash
-cd multiple_swimmer
+cd multiple_swimmers
 sh run.sh
 ```
-In this example you will see two Salamandra Robotica robot swimmers run with two different controllers, an abstract oscillator decentralized controller and a sine wave controller.
 
+The script spawns two swimmers side by side, records their trajectories, and saves two outputsç: a `swimming_two_controllers.gif` plus an HDF5 log.
 
-![Demo](swimming_two_controllers.gif)
+## Post-processing data
 
+The folder includes `example_plot_results.py`, which reads the logged HDF5 file through the FARMS IO helpers and produces joint-angle and hydrodynamic-force plots in-place. Generated figures resemble:
 
-An example of data postprocess is provided in ```example_plot_results.py```. This should save two plots for the joint angles and the external forces (hydrodynamic) in the ```multiple_swimmers``` folder similar to these:
 <img src="multiple_swimmers/joint_positions.png" alt="Joint Angles" width="1000"/>
 <img src="multiple_swimmers/external_forces.png" alt="External Forces" width="1000"/>
+
+Feel free to adapt the script for custom analyses or to plug the data into your own tooling.
 
 
 
