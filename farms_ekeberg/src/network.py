@@ -56,8 +56,8 @@ class SalamandraRoboticaController(NNController):
         self.right_body_idx = range(self.n_body_joints, 2*self.n_body_joints)
         self.left_leg_idx   = range(2*self.n_body_joints, 2*self.n_body_joints + self.n_leg_joints)
         self.right_leg_idx  = range(2*self.n_body_joints + self.n_leg_joints, 2*self.n_body_joints + 2*self.n_leg_joints)
-        self.left_idx = np.concatenate([self.left_body_idx, self.left_leg_idx])
-        self.right_idx = np.concatenate([self.right_body_idx, self.right_leg_idx])
+        self.left_idx       = np.concatenate([self.left_body_idx, self.left_leg_idx]).astype(int)
+        self.right_idx      = np.concatenate([self.right_body_idx, self.right_leg_idx]).astype(int)
 
     def step(
             self,
