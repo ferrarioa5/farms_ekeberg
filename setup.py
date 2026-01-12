@@ -8,6 +8,7 @@ with open("README.md", "r") as fh:
 setup(
     name="farms_ekeberg",
     author="Andrea Ferrario",
+    version="0.1",
     description="Implicit muscles simulation library",
     packages=find_packages(),
     long_description=description,

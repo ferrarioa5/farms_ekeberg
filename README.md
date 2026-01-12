@@ -1,6 +1,6 @@
 
 
-<img src="swimming_two_controllers.gif" alt="Swimming Demo" width="1000"/>
+<img src="demo/swimming_two_controllers.gif" alt="Swimming Demo" width="1000"/>
 
 # implicit_ekeberg
 
@@ -33,7 +33,7 @@ Your controller class must:
     - Inherit from `network.NNController`
     - Implement a `step()` method that is called at every simulation iteration and returns the muscle difference and sum terms used in the Ekeberg muscle equations
 
-- **multiple_swimmers/**: Demo comparing two controller families while sharing the Ekeberg muscle models. The folder ships configs, controller code, `run.sh` for quick experiments, output assets, and plotting utilities.
+- **demo/**: Demo comparing two controller families while sharing the Ekeberg muscle models. The folder ships configs, controller code, `run.sh` for quick experiments, output assets, and plotting utilities.
 
 - **sdf/**: Contains the SDF files for the robot model and environment.
 
@@ -73,7 +73,7 @@ The editable install exposes the `farms_ekeberg` package (including the extensio
 Launch the paired Salamandra Robotica demo to compare the Hopf-oscillator controller with a sine-wave controller:
 
 ```bash
-cd multiple_swimmers
+cd demo
 sh run.sh
 ```
 
@@ -83,8 +83,8 @@ The script spawns two swimmers side by side, records their trajectories, and sav
 
 The folder includes `example_plot_results.py`, which reads the logged HDF5 file through the FARMS IO helpers and produces joint-angle and hydrodynamic-force plots in-place. Generated figures resemble:
 
-<img src="multiple_swimmers/joint_positions.png" alt="Joint Angles" width="1000"/>
-<img src="multiple_swimmers/external_forces.png" alt="External Forces" width="1000"/>
+<img src="demo/joint_positions.png" alt="Joint Angles" width="1000"/>
+<img src="demo/external_forces.png" alt="External Forces" width="1000"/>
 
 Feel free to adapt the script for custom analyses or to plug the data into your own tooling.
 
