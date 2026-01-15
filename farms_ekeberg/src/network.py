@@ -2,10 +2,6 @@
 
 from abc import ABC, abstractmethod
 import numpy as np
-from farms_core.experiment.options import ExperimentOptions
-from farms_core.model.data import AnimatData
-from farms_core.model.options import AnimatOptions
-from scipy.integrate._ode import ode
 from scipy import integrate
 
 class NNController(ABC):
@@ -16,11 +12,11 @@ class NNController(ABC):
 
     def __init__(self, animat_data, animat_options, experiment_options, n_joints, n_iterations):
         super().__init__()
-        self.animat_data: AnimatData = animat_data
-        self.animat_options = animat_options
+        self.animat_data        = animat_data
+        self.animat_options     = animat_options
         self.experiment_options = experiment_options
-        self.n_joints = n_joints
-        self.n_iterations = n_iterations
+        self.n_joints           = n_joints
+        self.n_iterations       = n_iterations
 
     @abstractmethod
     def step(
@@ -43,7 +39,7 @@ class NNController(ABC):
 class SalamandraRoboticaController(NNController):
     """Salamandra Robotica Controller Base Class"""
 
-    def __init__(self, animat_data, animat_options, experiment_options, n_joints, n_iterations):
+    def __init__(self, animat_data, animat_options, experiment_options, n_joints, n_iterations, config):
         super().__init__(animat_data, animat_options, experiment_options, n_joints, n_iterations)
 
         control_joint_names = [joint.joint_name for joint in self.animat_options.control.motors]
