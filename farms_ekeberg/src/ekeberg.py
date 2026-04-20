@@ -24,14 +24,13 @@ class Dict2Class(object):
 
 class EkebergMuscleController(AnimatController):
 
-    def __init__(self, animat_data, animat_options, experiment_options, config, animat_i, *args, **kwargs):
+    def __init__(self, animat_data, animat_options, experiment_options, config, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         self.animat_data        = animat_data
         self.animat_options     = animat_options
         self.experiment_options = experiment_options
         self.config             = Dict2Class(config)
-        self.animat_i           = animat_i
         self.n_joints           = len(self.animat_options.control.motors)
         self.n_iterations       = experiment_options.simulation.runtime.n_iterations
 
@@ -61,12 +60,12 @@ class EkebergMuscleController(AnimatController):
 
             if not muscles_pars.endswith('.csv'):
                 raise ValueError(f"muscle_pars file path must end with '.csv', got '{muscles_pars}'")
-            
+
             data = np.genfromtxt(muscles_pars, delimiter=',', names=True, dtype=None, encoding='utf-8')
             muscles_pars = {
                 row[0]: {field: row[i+1] for i, field in enumerate(data.dtype.names[1:])}
                 for row in data
-            } 
+            }
             self.config.muscle_pars = muscles_pars
 
         else:
